@@ -11,6 +11,21 @@ class Pokeball {
   constructor() {
     this.storage = [];
   }
+  isEmpty() {
+    return this.storage.length === 0;
+  }
+  throw(pokemon = null) {
+    if (pokemon === null) {
+      return this.storage.pop();
+    }
+    if (this.isEmpty()) {
+      this.storage.push(pokemon);
+      console.log(`${pokemon} caught`);
+    }
+  }
+  contains() {
+    return this.isEmpty() ? "empty..." : this.storage[0];
+  }
 }
 
 class Battle {}
