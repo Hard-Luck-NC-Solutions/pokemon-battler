@@ -65,7 +65,7 @@ describe("Pokemon Class", () => {
     });
   });
 });
-describe.only("type classes", () => {
+describe("type classes", () => {
   const charmander = new Fire("charmander", 100, 50);
   const bulbasaur = new Grass("Bulbasaur", 100, 30);
   const squirtle = new Water("Squirtle", 100, 30);
