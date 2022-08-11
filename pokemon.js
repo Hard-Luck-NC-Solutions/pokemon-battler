@@ -10,8 +10,8 @@ class Pokemon {
     return this.type !== "normal";
   }
 
-  isWeakTo(pokemon) {
-    return pokemon.type !== "normal";
+  isWeakTo() {
+    return this.type !== "normal";
   }
   takeDamage(damage) {
     this.hitPoints -= damage;
@@ -23,5 +23,4 @@ class Pokemon {
     return this.hitPoints === 0;
   }
 }
-
 module.exports = Pokemon;

@@ -1,4 +1,7 @@
 const Pokemon = require("../pokemon.js");
+const Fire = require("../fire.js");
+const Water = require("../water.js");
+const Grass = require("../grass.js");
 
 describe("Pokemon Class", () => {
   describe("properties", () => {
@@ -28,7 +31,7 @@ describe("Pokemon Class", () => {
     });
   });
   describe("methods", () => {
-    test("returns false if pokemon is normal type", () => {
+    test("isEffectiveAgains returns false if pokemon is normal type", () => {
       const pikachu = new Pokemon("Pikachu", 100, 30);
       const squirtle = new Pokemon("Squirtle", 100, 30);
       expect(pikachu.isEffectiveAgainst(squirtle)).toBe(false);
@@ -53,6 +56,41 @@ describe("Pokemon Class", () => {
       expect(pikachu.hasFainted()).toBe(false);
       pikachu.takeDamage(50);
       expect(pikachu.hasFainted()).toBe(true);
+    });
+  });
+});
+describe.only("type classes", () => {
+  const charmander = new Fire("charmander", 100, 50);
+  const bulbasaur = new Grass("Bulbasaur", 100, 30);
+  const squirtle = new Water("Squirtle", 100, 30);
+  describe("Fire class", () => {
+    test("isEffectiveAgainst returns true if type is grass else false", () => {
+      expect(charmander.isEffectiveAgainst(bulbasaur)).toBe(true);
+      expect(charmander.isEffectiveAgainst(squirtle)).toBe(false);
+    });
+    test("isWeakTo returns true if type is water else false", () => {
+      expect(charmander.isWeakTo(squirtle)).toBe(true);
+      expect(charmander.isWeakTo(bulbasaur)).toBe(false);
+    });
+  });
+  describe("Water class", () => {
+    test("isEffectiveAgainst returns true if type is grass else false", () => {
+      expect(squirtle.isEffectiveAgainst(charmander)).toBe(true);
+      expect(squirtle.isEffectiveAgainst(bulbasaur)).toBe(false);
+    });
+    test("isWeakTo returns true if type is water else false", () => {
+      expect(squirtle.isWeakTo(bulbasaur)).toBe(true);
+      expect(squirtle.isWeakTo(charmander)).toBe(false);
+    });
+  });
+  describe("Grass class", () => {
+    test("isEffectiveAgainst returns true if type is grass else false", () => {
+      expect(bulbasaur.isEffectiveAgainst(squirtle)).toBe(true);
+      expect(bulbasaur.isEffectiveAgainst(charmander)).toBe(false);
+    });
+    test("isWeakTo returns true if type is water else false", () => {
+      expect(bulbasaur.isWeakTo(charmander)).toBe(true);
+      expect(bulbasaur.isWeakTo(squirtle)).toBe(false);
     });
   });
 });
