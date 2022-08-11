@@ -1,7 +1,13 @@
-const Pokemon = require("../pokemon.js");
-const Fire = require("../fire.js");
-const Water = require("../water.js");
-const Grass = require("../grass.js");
+const {
+  Pokemon,
+  Water,
+  Fire,
+  Grass,
+  Charmander,
+  Squirtle,
+  Bulbasaur,
+  Rattata,
+} = require("../pokemon.js");
 
 describe("Pokemon Class", () => {
   describe("properties", () => {
@@ -93,4 +99,45 @@ describe.only("type classes", () => {
       expect(bulbasaur.isWeakTo(squirtle)).toBe(false);
     });
   });
+  describe("Charmander", () => {
+    test("charmanders move is ember", () => {
+      const charmander1 = new Charmander("Charmander", 100, 30);
+      expect(charmander1.move).toBe("ember");
+    });
+  });
+  describe("Squirtle", () => {
+    test("squirtles move is water gun", () => {
+      const squirtle1 = new Squirtle("Squirtle", 100, 30);
+      expect(squirtle1.move).toBe("water gun");
+    });
+  });
+  describe("Bulbasaur", () => {
+    test("bulbasaurs move is vine whip", () => {
+      const bulbasaur1 = new Bulbasaur("Bulbasaur", 100, 30);
+      expect(bulbasaur1.move).toBe("vine whip");
+    });
+  });
+  describe("Rattata", () => {
+    test("Rattatas returnd as an object", () => {
+      const rattata1 = new Rattata("Rattata", 100, 30);
+      expect(typeof rattata1).toEqual("object");
+    });
+  });
 });
+/*
+ 
+Methods
+throw
+
+can take a Pokemon as an argument. If the pokeball is empty it will capture the passed pokemon. If it isn't empty the user should not be allowed to capture a pokemon with it! The throw method should also console log something like ("you caught pokemonX's name")
+Additionally the method can be invoked with no argument. In this case the method should return the stored Pokemon (ready for battle). The throw method should console log something like ("GO pokemonX's name!!") in this scenario. If the ball is empty then the user should be informed.
+isEmpty
+
+should return a Boolean representing whether or not a Pokemon is stored inside it
+contains
+
+should return the name of the Pokemon that is stored,
+if the Pokeball is empty is should return "empty ..."
+
+
+ */
