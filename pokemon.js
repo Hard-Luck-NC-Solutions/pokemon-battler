@@ -1,10 +1,26 @@
 class Pokemon {
-  constructor(name, hitpoints, attackingDamage) {
+  constructor(name, hitPoints, attackingDamage) {
     this.name = name;
     this.type = "normal";
-    this.hitpoints = hitpoints;
+    this.hitPoints = hitPoints;
     this.attackingDamage = attackingDamage;
     this.move = "tackle";
+  }
+  isEffectiveAgainst() {
+    return this.type !== "normal";
+  }
+
+  isWeakTo(pokemon) {
+    return pokemon.type !== "normal";
+  }
+  takeDamage(damage) {
+    this.hitPoints -= damage;
+  }
+  useMove() {
+    return this.attackingDamage;
+  }
+  hasFainted() {
+    return this.hitPoints === 0;
   }
 }
 
