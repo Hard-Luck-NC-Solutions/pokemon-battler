@@ -28,8 +28,27 @@ class Pokeball {
   }
 }
 
-class Battle {}
+class Trainer {
+  constructor() {
+    const ball1 = new Pokeball();
+    const ball2 = new Pokeball();
+    const ball3 = new Pokeball();
+    const ball4 = new Pokeball();
+    const ball5 = new Pokeball();
+    const ball6 = new Pokeball();
+    this.belt = [ball1, ball2, ball3, ball4, ball5, ball6];
+  }
+  catch(pokemon) {
+    for (let i = 0; i < this.belt.length; i++) {
+      if (this.belt[i].isEmpty()) {
+        this.belt[i].throw(pokemon);
+        return;
+      }
+    }
+    console.log("no empty pokeballs");
+  }
+}
 
-class Trainer {}
+class Battle {}
 
 module.exports = { Pokeball, Battle, Trainer };
