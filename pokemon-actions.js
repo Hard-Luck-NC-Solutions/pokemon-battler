@@ -47,6 +47,13 @@ class Trainer {
     }
     console.log("no empty pokeballs");
   }
+  getPokemon(pokemon) {
+    for (let i = 0; i < this.belt.length; i++) {
+      if (this.belt[i].contains() === pokemon) {
+        return this.belt[i].throw();
+      }
+    }
+  }
 }
 
 class Battle {}

@@ -78,5 +78,21 @@ describe("trainer class", () => {
       trainer.catch("dragonite"); // should fail as all balls are full
       expect(consoleSpy).toHaveBeenCalledWith("no empty pokeballs");
     });
+    test("get pokemon from first ball", () => {
+      const trainer = new Trainer();
+      trainer.catch("pikachu");
+      expect(trainer.getPokemon("pikachu")).toBe("pikachu");
+    });
+    test("gets pokemon from any ball", () => {
+      const trainer = new Trainer();
+      trainer.catch("pikachu");
+      trainer.catch("charmander");
+      trainer.catch("squirtle");
+      trainer.catch("bulbasaur");
+      trainer.catch("rattata");
+      expect(trainer.getPokemon("pikachu")).toBe("pikachu");
+      expect(trainer.getPokemon("squirtle")).toBe("squirtle");
+      expect(trainer.getPokemon("rattata")).toBe("rattata");
+    });
   });
 });
