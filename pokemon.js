@@ -7,11 +7,11 @@ class Pokemon {
     this.move = "tackle";
   }
   isEffectiveAgainst() {
-    return this.type !== "normal";
+    return false;
   }
 
   isWeakTo() {
-    return this.type !== "normal";
+    return false;
   }
   takeDamage(damage) {
     this.hitPoints -= damage;
